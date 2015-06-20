@@ -9,7 +9,7 @@ describe("FilePersistence Test Suite", function(){
 
 	//var request = require('request');
 	var request = require('C:/Program Files/nodejs/node_modules/npm/node_modules/request')
-	var base_url = "http://mycontactsvc.com:3000";
+	var base_url = "http://localhost:3000";
 	var contacts_url = base_url + "/contacts";
 	var fs = require('fs');
 
@@ -23,7 +23,7 @@ describe("FilePersistence Test Suite", function(){
 			contact.lastName = "peri";
 			contact.phone = "23002300";
 
-			console.log(JSON.stringify(contact));
+			//console.log(JSON.stringify(contact));
 		    
 		    request.post({url: contacts_url,
 		    			  body: contact,
@@ -32,7 +32,7 @@ describe("FilePersistence Test Suite", function(){
 		    		    function(error, response, body){
 
 							expect(response.statusCode).toBe(200);
-							console.log(body);
+							//console.log(body);
 							idCreated = body;
 							done();
 					    });
@@ -41,7 +41,7 @@ describe("FilePersistence Test Suite", function(){
 		it("should persist contact",function(done){
 
 			var fileName = getContactFileName(idCreated);
-
+			console.log('filename---' + filename);
 			var obj = JSON.parse(fs.readFileSync(fileName));
 
 			expect(obj.firstName).toBe("jagan");

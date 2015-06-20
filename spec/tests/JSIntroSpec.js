@@ -67,4 +67,13 @@ describe("JSIntro Test Suite", function(){
 			expect(str).toEqual("a");
 		});
 	});
+	
+	describe("JSIntro-ReverseArrayOfStrings", function(){
+		
+		it("[madhu, manu] is reversed as [manu, madhu]", function(){
+			
+			var str = JSIntro.ReverseArrayOfStrings(["madhu", "manu"]);
+			expect(str).toEqual(["manu", "madhu"]);
+		});
+	});
 });
